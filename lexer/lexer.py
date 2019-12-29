@@ -47,8 +47,8 @@ chars = [
   ("mark", r"\'"),
   ("double_mark", r"\""),
   ("scape", r"\\"),
-  ("add", r"\+"),
-  ("subs", r"\-"),
+  ("sum", r"\+"),
+  ("sub", r"\-"),
   ("mult", r"\*"),
   ("div", r"\/"),
 ]
