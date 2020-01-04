@@ -43,7 +43,6 @@ class Parser():
             return VarDec(self.builder, self.module, p[1])
 
         @self.pg.production('statement : IDENTIFIER ATTRIBUTION expr SEMI_COLON')
-        @self.pg.production('statement : IDENTIFIER ATTRIBUTION text SEMI_COLON')
         def attribution(p):
             left = p[0]
             right = p[2]

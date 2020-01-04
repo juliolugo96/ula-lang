@@ -94,6 +94,7 @@ class Different(BinaryOp):
 class Attribution(BinaryOp):
     def eval(self):
         identifier = self.module.get_global(self.left.value)
+        
         value = self.right.eval()
         self.builder.store(value, identifier)
 
