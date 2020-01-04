@@ -1,5 +1,5 @@
-
 from llvmlite import ir, binding
+from ctypes import CFUNCTYPE
 
 
 class CodeGen():
@@ -11,6 +11,7 @@ class CodeGen():
         self._config_llvm()
         self._create_execution_engine()
         self._declare_print_function()
+        self._declare_read_function()
 
     def _config_llvm(self):
         # Config LLVM
@@ -41,6 +42,14 @@ class CodeGen():
         printf = ir.Function(self.module, printf_ty, name="printf")
         self.printf = printf
 
+    def _declare_read_function(self):
+        # Declare Read function
+        voidptr_ty = ir.IntType(8).as_pointer()
+        read_ty = ir.FunctionType(ir.IntType(32), [voidptr_ty], var_arg=True)
+        read = ir.Function(self.module, read_ty, name="read")
+        self.read = read
+
+
     def _compile_ir(self):
         """
         Compile the LLVM IR string with the given engine.
@@ -54,6 +63,11 @@ class CodeGen():
         # Now add the module and make sure it is ready for execution
         self.engine.add_module(mod)
         self.engine.finalize_object()
+        fptr = self.engine.get_function_address("main")
+        py_func = CFUNCTYPE(None)(fptr)
+        print('--------------')
+        py_func()
+        print('\n --------------')
         self.engine.run_static_constructors()
         return mod
 

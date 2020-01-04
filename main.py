@@ -19,6 +19,9 @@ printf = codegen.printf
 pg = Parser(module, builder, printf)
 pg.parse()
 parser = pg.get_parser()
+
+# print(list(tokens))
+
 parser.parse(tokens).eval()
 
 codegen.create_ir()

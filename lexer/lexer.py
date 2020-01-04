@@ -5,7 +5,7 @@ from rply import LexerGenerator
 keywords = [
 ("FALSE", r"falso"),
 ("TRUE", r"verdadero"),
-("ELSE", r"contrario"),
+("ELSE", r"si_no"),
 ("BREAK", r"salir"),
 ("IN", r"en"),
 ("RETURN", r"retorna"),
@@ -20,39 +20,45 @@ keywords = [
 ("PRINT", r"mostrar"),
 ("READ", r"leer"),
 ("END", r"fin"),
-("IMPORT", r"importar")
+("IMPORT", r"importar"),
+("BIGGER", r"es_mayor_que"),
+("SMALLER", r"es_menor_que"),
+("ATTRIBUTION", r"le_asigno"),
+("EQUAL", r"es_igual_a"),
+("DIFF", r"es_distinto_a"),
+("VAR", r"variable")
 ]
 
 
 # Characters
 
 chars = [
-  ("lower", r'[a-z]'),
-  ("upper", r'[A-Z]'),
-  ("digit", r'\d+'),
-  ("open_par", r"\("),
-  ("close_par", r"\)"),
-  ("open_bracket", r"\["),
-  ("close_bracket", r"\]"),
-  ("open_brace", r"\{"),
-  ("close_brace", r"\}"),
-  ("open_ang", r"\<"),
-  ("close_ang", r"\>"),
-  ("assign", r"\="),
-  ("comma", r"\,"),
-  ("dot", r"\."),
-  ("colon", r"\:"),
-  ("semicolon", r"\;"),
-  ("hash_sym", r"\#"),
-  ("mark", r"\'"),
-  ("double_mark", r"\""),
-  ("scape", r"\\"),
-  ("sum", r"\+"),
-  ("sub", r"\-"),
-  ("mult", r"\*"),
-  ("div", r"\/"),
+  ("DIGIT", r'\d+'),
+  ("OPEN_PARENS", r"\("),
+  ("CLOSE_PARENS", r"\)"),
+  ("OPEN_SQUARE_BRACKETS", r"\["),
+  ("CLOSE_SQUARE_BRACKETS", r"\]"),
+  ("OPEN_BRACKETS", r"\{"),
+  ("CLOSE_BRACKETS", r"\}"),
+  ("SMALLER", r"\<"),
+  ("BIGGER", r"\>"),
+  ("ATTRIBUTION", r":="),
+  ("EQUAL", r"="),
+  ("DIFF", r"!="),
+  ("COMMA", r"\,"),
+  ("DOT", r"\."),
+  ("COLON", r"\:"),
+  ("SEMI_COLON", r"\;"),
+  ("HASH", r"\#"),
+  ("QUOTE", r"\'"),
+  ("DOUBLE_QUOTE", r"\""),
+  ("ESCAPE", r"\\"),
+  ("PLUS", r"\+"),
+  ("MINUS", r"\-"),
+  ("MUL", r"\*"),
+  ("DIV", r"/"),
+  ('IDENTIFIER', r'[a-zA-Z_][a-zA-Z_0-9]*')
 ]
-
 
 class Lexer():
   def __init__(self):
