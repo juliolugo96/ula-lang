@@ -50,14 +50,14 @@ chars = [
   ("COLON", r"\:"),
   ("SEMI_COLON", r"\;"),
   ("HASH", r"\#"),
-  ("QUOTE", r"\'"),
   ("DOUBLE_QUOTE", r"\""),
   ("ESCAPE", r"\\"),
   ("PLUS", r"\+"),
   ("MINUS", r"\-"),
   ("MUL", r"\*"),
   ("DIV", r"/"),
-  ('IDENTIFIER', r'[a-zA-Z_][a-zA-Z_0-9]*')
+  ("IDENTIFIER", r'[a-zA-Z_][a-zA-Z_0-9]*'),
+  ("QUOTE", r"\'"),
 ]
 
 class Lexer():

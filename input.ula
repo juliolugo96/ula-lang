@@ -1,8 +1,0 @@
-variable x;
-x := 4 * 4 + 2;
-si (x = 17){
-    x := 3;
-} si_no {
-    x := 1;
-}
-mostrar(x);
