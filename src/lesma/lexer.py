@@ -292,7 +292,7 @@ class Lexer(object):
             self.next_char()
             return Token(ESCAPE, '\\', line_num, self.indent_level)
 
-        raise SyntaxError('Unknown character')
+        raise SyntaxError('Caracter desconocido')
 
     def analyze(self):
         token = self.get_next_token()

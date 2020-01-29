@@ -102,7 +102,7 @@ def is_ops(self, op, left, right, node):
     elif op == IS_NOT:
         return self.const(orig != compare, BOOL)
     else:
-        raise SyntaxError('Unknown identity operator', node.op)
+        raise SyntaxError('Operador de identidad desconocido', node.op)
 
 
 def enum_ops(self, op, left, right, node):
@@ -116,7 +116,7 @@ def enum_ops(self, op, left, right, node):
         right_val = self.builder.extract_value(right, 0)
         return self.builder.icmp_unsigned(op, left_val, right_val, 'cmptmp')
     else:
-        raise SyntaxError('Unknown binary operator', node.op)
+        raise SyntaxError('Operador binario desconocido', node.op)
 
 
 def int_ops(self, op, left, right, node):
@@ -179,7 +179,7 @@ def int_ops(self, op, left, right, node):
             cmp_res = self.builder.icmp_unsigned(op, left, right, 'cmptmp')
         return self.builder.uitofp(cmp_res, type_map[BOOL], 'booltmp')
     else:
-        raise SyntaxError('Unknown binary operator', node.op)
+        raise SyntaxError('Operador binario desconocido', node.op)
 
 
 def float_ops(self, op, left, right, node):

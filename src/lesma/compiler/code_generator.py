@@ -185,7 +185,7 @@ class CodeGenerator(NodeVisitor):
                         ))
                 args_supplied.append(arg)
         elif len(node.arguments) + len(node.named_arguments) > len(func_type.args) and func_type.var_arg is None:
-            raise SyntaxError('Unexpected arguments')
+            raise SyntaxError('Argumentos inválidos')
         else:
             args = []
             for i, arg in enumerate(node.arguments):
@@ -244,7 +244,7 @@ class CodeGenerator(NodeVisitor):
                         ))
                 args_supplied.append(arg)
         elif len(node.arguments) + len(node.named_arguments) > len(func_type.args) and func_type.var_arg is None:
-            raise SyntaxError('Unexpected arguments')
+            raise SyntaxError('Argumentos inválidos')
         else:
             args = []
             for i, arg in enumerate(node.arguments):

@@ -29,13 +29,13 @@ class Parser(object):
         if self.current_token.type in token_type:
             self.next_token()
         else:
-            error('file={} line={} Syntax Error: expected {}'.format(self.file_name, self.line_num, ", ".join(token_type)))
+            error('archivo={} línea={} Error de sintaxis: se esperaba {}'.format(self.file_name, self.line_num, ", ".join(token_type)))
 
     def eat_value(self, *token_value):
         if self.current_token.value in token_value:
             self.next_token()
         else:
-            error('file={} line={} Syntax Error: expected {}'.format(self.file_name, self.line_num, ", ".join(token_value)))
+            error('archivo={} línea={} Error de sintaxis: se esperaba {}'.format(self.file_name, self.line_num, ", ".join(token_value)))
 
     def preview(self, num=1):
         return self.lexer.preview_token(num)
@@ -49,7 +49,7 @@ class Parser(object):
             if x == to_find:
                 return True
             elif x == EOF:
-                error('file={} line={} Syntax Error: expected {}'.format(self.file_name, self.line_num, to_find))
+                error('archivo={} línea={} Error de sintaxis: se esperaba {}'.format(self.file_name, self.line_num, to_find))
 
         return False
 
@@ -505,7 +505,7 @@ class Parser(object):
             self.eat_value(RCURLYBRACKET)
             return HashMap(pairs, self.line_num)
         else:
-            raise SyntaxError('Wait... what?')
+            raise SyntaxError('Espera... ¡¿Qué?!')
 
     def tuple_expression(self, token):
         if token.value == LPAREN:
@@ -547,7 +547,7 @@ class Parser(object):
         elif self.current_token.value in ASSIGNMENT_OP:
             node = self.assignment_statement(token)
         else:
-            raise SyntaxError('Line {}'.format(self.line_num))
+            raise SyntaxError('Línea: {}'.format(self.line_num))
         return node
 
     def property_or_method(self, token):
@@ -593,7 +593,7 @@ class Parser(object):
         elif token.value in INCREMENTAL_ASSIGNMENT_OP:
             node = IncrementAssign(left, token.value, self.line_num)
         else:
-            raise SyntaxError('Unknown assignment operator: {}'.format(token.value))
+            raise SyntaxError('Operador de asignación desconocido: {}'.format(token.value))
         return node
 
     def dictionary_assignment(self, token):
@@ -704,7 +704,7 @@ class Parser(object):
             var = VarDecl(left, type_node, self.line_num)
             node = self.variable_declaration_assignment(var)
         else:
-            raise SyntaxError('Unknown assignment operator: {}'.format(token.value))
+            raise SyntaxError('Operador de asignación desconocido: {}'.format(token.value))
         return node
 
     def typ(self, token):

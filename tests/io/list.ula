@@ -15,10 +15,6 @@ mostrar(cosas[2])
 cosas[2]++
 mostrar(cosas[2])
 
-x: lista<doble> = [1.5]
-mostrar(x[0])
-x[0] = 5.5
-
 y = [2.5,3.5, INFINITO]
 mostrar(y[0])
 
