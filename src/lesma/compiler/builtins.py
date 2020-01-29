@@ -95,7 +95,7 @@ def define_create_range(self, dyn_array_ptr, array_type):
     builder.cbranch(cond, create_range_body, create_range_exit)
 
     builder.position_at_end(create_range_body)
-    builder.call(self.module.get_global('{}.array.append'.format(str(array_type))), [builder.load(array_ptr), builder.load(num_ptr)])
+    builder.call(self.module.get_global('{}.array.agregar'.format(str(array_type))), [builder.load(array_ptr), builder.load(num_ptr)])
     builder.store(builder.add(one, builder.load(num_ptr)), num_ptr)
 
     builder.branch(create_range_test)
@@ -186,7 +186,7 @@ def dynamic_array_double_if_full(self, dyn_array_ptr, array_type):
 def dynamic_array_append(self, dyn_array_ptr, array_type):
     # START
     dyn_array_append_type = ir.FunctionType(type_map[VOID], [dyn_array_ptr, array_type])
-    dyn_array_append = ir.Function(self.module, dyn_array_append_type, '{}.array.append'.format(str(array_type)))
+    dyn_array_append = ir.Function(self.module, dyn_array_append_type, '{}.array.agregar'.format(str(array_type)))
     dyn_array_append.args[0].name = 'self'
     dyn_array_append_entry = dyn_array_append.append_basic_block('entry')
     builder = ir.IRBuilder(dyn_array_append_entry)
@@ -216,7 +216,7 @@ def dynamic_array_append(self, dyn_array_ptr, array_type):
     builder.branch(dyn_array_append_exit)
 
     # CLOSE
-    self.define('{}.array.append'.format(str(array_type)), dyn_array_append)
+    self.define('{}.array.agregar'.format(str(array_type)), dyn_array_append)
     builder.position_at_end(dyn_array_append_exit)
     builder.ret_void()
 
@@ -224,7 +224,7 @@ def dynamic_array_append(self, dyn_array_ptr, array_type):
 def dynamic_array_get(self, dyn_array_ptr, array_type):
     # START
     dyn_array_get_type = ir.FunctionType(array_type, [dyn_array_ptr, type_map[INT]])
-    dyn_array_get = ir.Function(self.module, dyn_array_get_type, '{}.array.get'.format(str(array_type)))
+    dyn_array_get = ir.Function(self.module, dyn_array_get_type, '{}.array.ver'.format(str(array_type)))
     dyn_array_get.args[0].name = 'self'
     dyn_array_get_entry = dyn_array_get.append_basic_block('entry')
     builder = ir.IRBuilder(dyn_array_get_entry)
@@ -278,7 +278,7 @@ def dynamic_array_get(self, dyn_array_ptr, array_type):
     builder.branch(dyn_array_get_exit)
 
     # CLOSE
-    self.define('{}.array.get'.format(str(array_type)), dyn_array_get)
+    self.define('{}.array.ver'.format(str(array_type)), dyn_array_get)
     builder.position_at_end(dyn_array_get_exit)
     builder.ret(builder.load(data_element_ptr))
 
@@ -286,7 +286,7 @@ def dynamic_array_get(self, dyn_array_ptr, array_type):
 def dynamic_array_set(self, dyn_array_ptr, array_type):
     # START
     dyn_array_set_type = ir.FunctionType(type_map[VOID], [dyn_array_ptr, type_map[INT], array_type])
-    dyn_array_set = ir.Function(self.module, dyn_array_set_type, '{}.array.set'.format(str(array_type)))
+    dyn_array_set = ir.Function(self.module, dyn_array_set_type, '{}.array.preparar'.format(str(array_type)))
     dyn_array_set.args[0].name = 'self'
     dyn_array_set_entry = dyn_array_set.append_basic_block('entry')
     builder = ir.IRBuilder(dyn_array_set_entry)
@@ -346,7 +346,7 @@ def dynamic_array_set(self, dyn_array_ptr, array_type):
     builder.branch(dyn_array_set_exit)
 
     # CLOSE
-    self.define('{}.array.set'.format(str(array_type)), dyn_array_set)
+    self.define('{}.array.preparar'.format(str(array_type)), dyn_array_set)
     builder.position_at_end(dyn_array_set_exit)
     builder.ret_void()
 
@@ -354,7 +354,7 @@ def dynamic_array_set(self, dyn_array_ptr, array_type):
 def dynamic_array_length(self, dyn_array_ptr, array_type):
     # START
     dyn_array_length_type = ir.FunctionType(type_map[INT], [dyn_array_ptr])
-    dyn_array_length = ir.Function(self.module, dyn_array_length_type, '{}.array.length'.format(str(array_type)))
+    dyn_array_length = ir.Function(self.module, dyn_array_length_type, '{}.array.longitud'.format(str(array_type)))
     dyn_array_length.args[0].name = 'self'
     dyn_array_length_entry = dyn_array_length.append_basic_block('entry')
     builder = ir.IRBuilder(dyn_array_length_entry)
@@ -366,7 +366,7 @@ def dynamic_array_length(self, dyn_array_ptr, array_type):
     size_ptr = builder.gep(builder.load(array_ptr), [zero_32, zero_32], inbounds=True)
 
     # CLOSE
-    self.define('{}.array.length'.format(str(array_type)), dyn_array_length)
+    self.define('{}.array.longitud'.format(str(array_type)), dyn_array_length)
     builder.ret(builder.load(size_ptr))
 
 # TODO: add the following functions for dynamic array
@@ -399,7 +399,7 @@ def define_print(self, dyn_array_ptr):
 
     # BODY
     builder.position_at_end(entry_block)
-    length = builder.call(self.module.get_global('i64.array.length'), [builder.load(array_ptr)])
+    length = builder.call(self.module.get_global('i64.array.longitud'), [builder.load(array_ptr)])
     builder.branch(zero_length_check_block)
 
     builder.position_at_end(zero_length_check_block)
@@ -416,7 +416,7 @@ def define_print(self, dyn_array_ptr):
     builder.cbranch(cond, body_block, exit_block)
 
     builder.position_at_end(body_block)
-    char = builder.call(self.module.get_global('i64.array.get'), [builder.load(array_ptr), builder.load(position_ptr)])
+    char = builder.call(self.module.get_global('i64.array.ver'), [builder.load(array_ptr), builder.load(position_ptr)])
     builder.call(self.module.get_global('putchar'), [char])
     add_one = builder.add(one, builder.load(position_ptr))
     builder.store(add_one, position_ptr)
@@ -454,7 +454,7 @@ def define_int_to_str(self, dyn_array_ptr):
         builder.call(self.module.get_global('@int_to_str'), [builder.load(array_ptr), div_ten])
 
     char = builder.add(fourtyeight, builder.load(x_addr))
-    builder.call(self.module.get_global('i64.array.append'), [builder.load(array_ptr), char])
+    builder.call(self.module.get_global('i64.array.agregar'), [builder.load(array_ptr), char])
     builder.branch(exit_block)
 
     # CLOSE
@@ -475,7 +475,7 @@ def define_bool_to_str(self, dyn_array_ptr):
 
     # BODY
     equalszero = builder.icmp_signed(EQUALS, func.args[1], ir.Constant(type_map[BOOL], 0))
-    dyn_array_append = self.module.get_global('i64.array.append')
+    dyn_array_append = self.module.get_global('i64.array.agregar')
 
     with builder.if_else(equalszero) as (then, otherwise):
         with then:

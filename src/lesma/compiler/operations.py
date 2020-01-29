@@ -160,6 +160,9 @@ def int_ops(self, op, left, right, node):
     elif op == AND:
         return self.builder.and_(left, right)
     elif op == OR:
+        print("Debugger")
+        print(left)
+        print(right)
         return self.builder.or_(left, right)
     elif op == XOR:
         return self.builder.xor(left, right)
@@ -218,7 +221,7 @@ def float_ops(self, op, left, right, node):
         cmp_res = self.builder.fcmp_ordered(op, left, right, 'cmptmp')
         return self.builder.uitofp(cmp_res, type_map[BOOL], 'booltmp')
     else:
-        raise SyntaxError('Unknown binary operator', node.op)
+        raise SyntaxError('Operador binario desconocido', node.op)
 
 
 def cast_ops(self, left, right, node):

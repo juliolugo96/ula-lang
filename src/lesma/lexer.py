@@ -69,7 +69,7 @@ class Lexer(object):
 
     def preview_token(self, num=1):
         if num < 1:
-            raise ValueError('num argument must be 1 or greater')
+            raise ValueError('El número de argumentos debe ser mayor o igual a 1')
         next_token = None
         current_pos = self.pos
         current_char = self.current_char

@@ -801,5 +801,5 @@ class Parser(object):
     def parse(self):
         node = self.program()
         if self.current_token.type != EOF:
-            raise SyntaxError('Unexpected end of program')
+            raise SyntaxError('¡Oh! Tu programa se ha detenido inesperadamente')
         return node

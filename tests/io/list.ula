@@ -1,0 +1,32 @@
+# Un comentario que sera omitido por el compilador
+
+k = 6
+
+si ((k == 25) o_es (k == 6))
+    mostrar("Hola")
+sino
+    mostrar("Mundo")
+
+cosas = [1, 2, 3]
+mostrar(cosas[0])
+mostrar(cosas[1*1+1])
+cosas[2] = 1002
+mostrar(cosas[2])
+cosas[2]++
+mostrar(cosas[2])
+
+x: lista<doble> = [1.5]
+mostrar(x[0])
+x[0] = 5.5
+
+y = [2.5,3.5, INFINITO]
+mostrar(y[0])
+
+z = [1,2,3]
+mostrar(z.longitud())
+z.agregar(99)
+mostrar(z[3])
+mostrar(z.longitud())
+
+z.preparar(3, 100)
+mostrar(z.ver(3))

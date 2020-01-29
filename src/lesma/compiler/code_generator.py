@@ -337,7 +337,7 @@ class CodeGenerator(NodeVisitor):
             var_name = self.search_scopes(node.left.collection.value)
             array_type = str(var_name.type.pointee.elements[-1].pointee)
             key = self.const(node.left.key.value)
-            var = self.call('{}.array.get'.format(array_type), [var_name, key])
+            var = self.call('{}.array.ver'.format(array_type), [var_name, key])
             pointee = var.type
         else:
             var_name = node.left.value
@@ -360,7 +360,7 @@ class CodeGenerator(NodeVisitor):
             raise NotImplementedError()
 
         if collection_access:
-            self.call('{}.array.set'.format(array_type), [var_name, key, res])
+            self.call('{}.array.preparar'.format(array_type), [var_name, key, res])
         else:
             self.store(res, var_name)
 
@@ -459,7 +459,7 @@ class CodeGenerator(NodeVisitor):
             iterator = self.search_scopes(node.iterator.value)
             array_type = str(iterator.type.pointee.elements[-1].pointee)
 
-        stop = self.call('{}.array.length'.format(array_type), [iterator])
+        stop = self.call('{}.array.longitud'.format(array_type), [iterator])
         self.branch(zero_length_block)
 
         self.position_at_end(zero_length_block)
@@ -468,7 +468,7 @@ class CodeGenerator(NodeVisitor):
 
         self.position_at_end(non_zero_length_block)
         varname = node.elements[0].value
-        val = self.call('{}.array.get'.format(array_type), [iterator, zero])
+        val = self.call('{}.array.ver'.format(array_type), [iterator, zero])
         self.alloc_define_store(val, varname, iterator.type.pointee.elements[2].pointee)
         position = self.alloc_define_store(zero, 'position', type_map[INT])
         self.branch(cond_block)
@@ -478,7 +478,7 @@ class CodeGenerator(NodeVisitor):
         self.cbranch(cond, body_block, end_block)
 
         self.position_at_end(body_block)
-        self.store(self.call('{}.array.get'.format(array_type), [iterator, self.load(position)]), varname)
+        self.store(self.call('{}.array.ver'.format(array_type), [iterator, self.load(position)]), varname)
         self.store(self.builder.add(one, self.load(position)), position)
         self.visit(node.block)
         if not self.is_break:
@@ -597,7 +597,7 @@ class CodeGenerator(NodeVisitor):
             elif isinstance(node.left, CollectionAccess):
                 right = self.visit(node.right)
                 array_type = str(self.search_scopes(node.left.collection.value).type.pointee.elements[-1].pointee)
-                self.call('{}.array.set'.format(array_type), [self.search_scopes(node.left.collection.value), self.const(node.left.key.value), right])
+                self.call('{}.array.preparar'.format(array_type), [self.search_scopes(node.left.collection.value), self.const(node.left.key.value), right])
             else:
                 var_name = node.left.value
                 var_value = self.top_scope.get(var_name)
@@ -672,7 +672,7 @@ class CodeGenerator(NodeVisitor):
             var_name = self.search_scopes(node.left.collection.value)
             array_type = str(self.search_scopes(node.left.collection.value).type.pointee.elements[-1].pointee)
             key = self.const(node.left.key.value)
-            var = self.call('{}.array.get'.format(array_type), [var_name, key])
+            var = self.call('{}.array.ver'.format(array_type), [var_name, key])
             pointee = var.type
         else:
             var_name = node.left.value
@@ -748,7 +748,7 @@ class CodeGenerator(NodeVisitor):
             raise NotImplementedError()
 
         if collection_access:
-            self.call('{}.array.set'.format(array_type), [var_name, key, res])
+            self.call('{}.array.preparar'.format(array_type), [var_name, key, res])
         else:
             self.store(res, var_name)
 
@@ -780,7 +780,7 @@ class CodeGenerator(NodeVisitor):
             array_type = self.visit(node.items[0]).type
         array_ptr = self.create_array(array_type)
         for element in elements:
-            self.call('{}.array.append'.format(str(array_type)), [array_ptr, element])
+            self.call('{}.array.agregar'.format(str(array_type)), [array_ptr, element])
         return self.load(array_ptr)
 
     def create_array(self, array_type):
@@ -804,7 +804,7 @@ class CodeGenerator(NodeVisitor):
             array_type = self.visit(node.items[0]).type
         array_ptr = self.create_array(array_type)
         for element in elements:
-            self.call('{}.array.append'.format(str(array_type)), [array_ptr, element])
+            self.call('{}.array.agregar'.format(str(array_type)), [array_ptr, element])
         return self.load(array_ptr)
 
     def visit_hashmap(self, node):
@@ -815,7 +815,7 @@ class CodeGenerator(NodeVisitor):
         collection = self.search_scopes(node.collection.value)
         for typ in array_types:
             if collection.type.pointee == self.search_scopes('{}.array'.format(typ)):
-                return self.call('{}.array.get'.format(typ), [collection, key])
+                return self.call('{}.array.ver'.format(typ), [collection, key])
 
         return self.builder.extract_value(self.load(collection.name), [key])
 
@@ -823,7 +823,7 @@ class CodeGenerator(NodeVisitor):
         array = self.create_array(type_map[INT])
         string = node.value.encode('utf-8')
         for char in string:
-            self.call('i64.array.append', [array, self.const(char)])
+            self.call('i64.array.agregar', [array, self.const(char)])
         return array
 
     def visit_print(self, node):
