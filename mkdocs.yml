@@ -1,12 +1,12 @@
-site_name: Lesma Documentation
-site_description: 'Lesma Documentation'
-site_url: 'https://hassanalinali.github.io/Lesma/'
-site_author: 'Alin Ali Hassan'
+site_name: ULA
+site_description: 'Documentación Lenguaje ULA'
+site_url: 'https://juliolugo96.github.io/ula-lang/'
+site_author: 'Julio Lugo'
 
-repo_name: 'hassanalinali/Lesma'
-repo_url: 'https://github.com/hassanalinali/Lesma'
+repo_name: 'juliolugo96/ula-lang'
+repo_url: 'https://github.com/juliolugo96/ula-lang'
 
-copyright: 'Copyright &copy; 2019 Alin Ali Hassan'
+copyright: 'Copyright &copy; 2020 Julio Lugo'
 
 nav:
   - Lesma: index.md
