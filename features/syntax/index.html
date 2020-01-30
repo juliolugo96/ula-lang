@@ -3,7 +3,7 @@
 
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="es" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -19,21 +19,21 @@
         <meta name="author" content="Julio Lugo">
       
       
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+        <meta name="lang:clipboard.copy" content="Copiar al portapapeles">
       
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+        <meta name="lang:clipboard.copied" content="Copiado al portapapeles">
       
-        <meta name="lang:search.language" content="en">
+        <meta name="lang:search.language" content="es">
       
         <meta name="lang:search.pipeline.stopwords" content="True">
       
         <meta name="lang:search.pipeline.trimmer" content="True">
       
-        <meta name="lang:search.result.none" content="No matching documents">
+        <meta name="lang:search.result.none" content="No se encontraron documentos">
       
-        <meta name="lang:search.result.one" content="1 matching document">
+        <meta name="lang:search.result.one" content="1 documento encontrado">
       
-        <meta name="lang:search.result.other" content="# matching documents">
+        <meta name="lang:search.result.other" content="# documentos encontrados">
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
@@ -129,7 +129,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <input type="text" class="md-search__input" name="query" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
       <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
         &#xE5CD;
@@ -139,7 +139,7 @@
       <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="result">
           <div class="md-search-result__meta">
-            Type to start searching
+            Teclee para comenzar búsqueda
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -157,7 +157,7 @@
 
   
 
-<a href="https://github.com/juliolugo96/ula-lang/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/juliolugo96/ula-lang/" title="Ir al repositorio" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -204,7 +204,7 @@
 
   
 
-<a href="https://github.com/juliolugo96/ula-lang/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/juliolugo96/ula-lang/" title="Ir al repositorio" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -308,32 +308,8 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../operators/" title="Operadores" class="md-nav__link">
-      Operadores
-    </a>
-  </li>
-
-        
       </ul>
     </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../TODO/" title="TODO" class="md-nav__link">
-      TODO
-    </a>
   </li>
 
     
@@ -361,16 +337,16 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/juliolugo96/ula-lang/edit/master/docs/features/syntax.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/juliolugo96/ula-lang/edit/master/docs/features/syntax.md" title="Editar esta página" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
                   <h1>Sintaxis</h1>
                 
                 <ul>
-<li>Whitespace is signifiant, indentation uses either tabs or exactly 4 spaces</li>
-<li>Flow control statements, structs, enums, classes and functions require indentation</li>
-<li>Lesma's Checker will report any invalid syntax or unrecommended behaviour, such incompatible types for operations, or unused variables.</li>
-<li><code>_</code> variable name is used as an ignored result, and is treated differently by the compiler (similar to golang)</li>
+<li>Los espacios en blanco afectan (al igual que en Python. La identación usa bien sea tabulaciones o exactamente cuatro espacios.</li>
+<li>Las sentencias de control de flujos, estructuras o funciones requieren identación.</li>
+<li>ULA reportará toda la sintaxis errónea.</li>
+<li>El nombre de variable <code>_</code> será utilizado como un resultado ignorado, y será tratado similar a como es en Golang.</li>
 </ul>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -384,47 +360,19 @@
 10
 11
 12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">do_that</span><span class="p">()</span>
-    <span class="k">pass</span>
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">si</span> <span class="n">VERDADERO</span>
+    <span class="n">hacer_esto</span><span class="p">()</span>
+<span class="n">sino</span> <span class="n">si</span> <span class="n">FALSO</span>
+    <span class="n">si</span> <span class="n">VERDADERO</span>
+    <span class="n">hacer_aquello</span><span class="p">()</span>
+<span class="n">sino</span>
+    <span class="n">hacer_otro</span><span class="p">()</span>
 
-<span class="k">if</span> <span class="n">true</span>
-    <span class="n">do_that</span><span class="p">()</span>
-<span class="k">else</span> <span class="k">if</span> <span class="n">false</span>
-    <span class="k">if</span> <span class="n">true</span>
-        <span class="k">pass</span>
-    <span class="n">do_that</span><span class="p">()</span>
-<span class="k">else</span>
-    <span class="n">do_that</span><span class="p">()</span>
+<span class="n">para</span> <span class="n">_</span> <span class="n">en</span> <span class="mf">0.</span><span class="o">.</span><span class="mi">20</span>
+    <span class="n">hacer_esto</span><span class="p">()</span>
 
-<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="mf">0.</span><span class="o">.</span><span class="mi">20</span>
-    <span class="n">do_that</span><span class="p">()</span>
-
-<span class="k">while</span><span class="p">(</span><span class="n">false</span><span class="p">)</span>
-    <span class="n">do_that</span><span class="p">()</span>
-
-<span class="n">struct</span> <span class="n">thing</span>
-    <span class="n">x</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">y</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">z</span><span class="p">:</span> <span class="n">double</span>
-
-<span class="k">class</span> <span class="nc">Example</span>
-    <span class="n">x</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">new</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+<span class="n">mientras</span><span class="p">(</span><span class="n">FALSO</span><span class="p">)</span>
+    <span class="n">hacer_aquello</span><span class="p">()</span>
 </pre></div>
 </td></tr></table>
                 
@@ -455,7 +403,7 @@
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
-                  Previous
+                  Anterior
                 </span>
                 Ejemplos
               </span>
@@ -467,7 +415,7 @@
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
-                  Next
+                  Siguiente
                 </span>
                 Palabras clave
               </span>
@@ -502,6 +450,21 @@
     </div>
     
       <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.es.js"></script>
+              
+            
+          
+          
+        
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
