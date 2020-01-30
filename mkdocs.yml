@@ -9,19 +9,15 @@ repo_url: 'https://github.com/juliolugo96/ula-lang'
 copyright: 'Copyright &copy; 2020 Julio Lugo'
 
 nav:
-  - Lesma: index.md
-  - Examples: examples.md
-  - Features:
-    - Syntax: features/syntax.md
-    - Keywords: features/keywords.md
-    - Flow Control: features/flow_control.md
-    - Structs: features/structs.md
-    - Classes: features/classes.md
-    - Enums: features/enums.md
-    - Types: features/types.md
-    - Operators: features/operators.md
+  - ULA: index.md
+  - Ejemplos: examples.md
+  - Funcionalidades:
+    - Sintaxis: features/syntax.md
+    - Palabras clave: features/keywords.md
+    - Control de flujo: features/flow_control.md
+    - Operadores: features/operators.md
   - TODO: TODO.md
-  - License: license.md
+  - Licencia: license.md
 
 extra_css:
     - css/extra.css
