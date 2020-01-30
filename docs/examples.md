@@ -1,6 +1,6 @@
 # Ejemplos
 
-Un poco de inparamación acerca de cómo manejar el lenguaje, su sintaxis y su semántica.
+Un poco de información acerca de cómo manejar el lenguaje, su sintaxis y su semántica.
 
 ```py
 # Hola mundo
@@ -11,7 +11,7 @@ numero = 23
 
 numero+=5
 
-pregunta = 'what\'s going on' # Escaping
+pregunta = 'what\'s going on' # Escape
 
 # Lista mutable
 cosas = [1, 2, 3] 
@@ -23,22 +23,21 @@ cosas_repetida = 0..4
 otras_cosas = (1.5, 9.5) 
 
 # Diccionario
-varios = {'first_name': 'Samus', 'last_name': 'Aran'} # Dictionary
-otros_varios: list<int> = [] # Empty Array of ints
+varios = {'primer_nombre': 'Samus', 'primer_apellido': 'Aran'} # Dictionary
 
 mostrar(cosas[1 + 1])
 
 si numero > 23
-	mostrar('greater than 23')
+	mostrar('Mayor que 23')
 sino si numero == 23
-	mostrar('equals 23')
+	mostrar('Igual a 23')
 sino
-	mostrar('less than 23')
+	mostrar('Menor que 23')
 
-para x en 0..40 # para loop using a range
+para x en 0..40 # Ciclo repita_para en un rango
 	mostrar(x * 2)
 
-para elem en cosas # Iterate over objects
+para elem en cosas # Iterar sobre objetos
 	mostrar(item)
 
 mientras numero > 1

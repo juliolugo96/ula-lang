@@ -33,9 +33,13 @@ pip install -r requirements.txt
 ```
 Al tener esto realizado, puedes correr el compilador o el interprete, crea un archivo de prueba y comienza a desarrollar. Recuerda que hay muchos ejemplos en la documentación.
 
-Para ejecutar ULA, debes primero ejecutar el siguiente comando:
+Para ejecutar ULA, debes primero ejecutar los siguientes comandos:
 
 ```bash
+# Para dar permisos de Ejecución a ULA
+chmod +x ula
+
+# Para poder tener acceso al script desde la terminal
 export PATH=$PATH:/ruta/de/este/repositorio
 ```
 
