@@ -52,4 +52,4 @@ si 2 no en cosas
 	mostrar('no')
 
 par_impar = 1
-
+```
