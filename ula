@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ -z "$2" ]; then
+    python ./src/les.py compile "$1"
+else
+    python ./src/les.py "$2" "$1"
+fi
