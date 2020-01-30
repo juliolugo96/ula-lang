@@ -1,36 +1,23 @@
-- Whitespace is signifiant, indentation uses either tabs or exactly 4 spaces
-- Flow control statements, structs, enums, classes and functions require indentation
-- Lesma's Checker will report any invalid syntax or unrecommended behaviour, such incompatible types for operations, or unused variables.
-- `_` variable name is used as an ignored result, and is treated differently by the compiler (similar to golang)
-
+- Los espacios en blanco afectan (al igual que en Python. La identación usa bien sea tabulaciones o exactamente cuatro espacios.
+- Las sentencias de control de flujos, estructuras o funciones requieren identación.
+- ULA reportará toda la sintaxis errónea.
+- El nombre de variable `_` será utilizado como un resultado ignorado, y será tratado similar a como es en Golang.
 
 ```py
-def do_that()
-	pass
 
-if true
-	do_that()
-else if false
-	if true
-		pass
-	do_that()
-else
-	do_that()
+si VERDADERO
+	hacer_esto()
+sino si FALSO
+	si VERDADERO
+	hacer_aquello()
+sino
+	hacer_otro()
 
-for _ in 0..20
-	do_that()
+para _ en 0..20
+	hacer_esto()
 
-while(false)
-	do_that()
+mientras(FALSO)
+	hacer_aquello()
 
-struct thing
-	x: int
-	y: str
-	z: double
-
-class Example
-	x: int
-	new(x: int)
-		self.x = x
 ```
 

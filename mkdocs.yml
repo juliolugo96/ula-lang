@@ -15,8 +15,6 @@ nav:
     - Sintaxis: features/syntax.md
     - Palabras clave: features/keywords.md
     - Control de flujo: features/flow_control.md
-    - Operadores: features/operators.md
-  - TODO: TODO.md
   - Licencia: license.md
 
 extra_css:
@@ -32,6 +30,7 @@ theme:
     code: 'Roboto Mono'
   logo:
     icon: 'book'
+  language: 'es'
 
 markdown_extensions:
   - admonition

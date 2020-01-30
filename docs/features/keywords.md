@@ -1,34 +1,33 @@
-For reference, here are all the keywords categorized by type.
+Para referencia, aquí están todas las palabras claves categorizadas:
 
-## General keywords
-
-|   |   |   |   | 
-|---|---|---|---|
-| struct | class | if | else | 
-| for | while | switch | case |
-| default | def | const | break |
-| continue | pass | type | extern | 
-| operator | fallthrough | defer | self |
-
-## Constant keywords
+## Generales
 
 |   |   |   |   | 
 |---|---|---|---|
-| true | false | inf |
+| estructura | clase | si | sino | 
+| para | mientras | segun_sea | caso |
+| defecto | def | constante | salir |
+| continuar |
 
-## Operator keywords
+## Constantes
+
+|   |   |   |   | 
+|-----------|-------|----------|---|
+| VERDADERO | FALSO | INFINITO |
+
+## Operadores
 
 |   |   |   |   |
 |---|---|---|---|
-| xor | and | or | not |
-| in | is | as |
+| xor | y_es | o_es | no |
+| en  | es   | como |
 
 ## Type keywords
 
 |   |   |   |   | 
 |---|---|---|---|
-| int | int8 | int16 | int32 |
-| int64 | int128 | uint | uint8 |
-| uint16 | uint32 | uint64 | uint128 |
-| double | float | str | bool |
-| func | list | tuple | void |
+| entero | entero8 | entero16 | entero32 |
+| entero64 | entero128 | uentero | uentero8 |
+| uentero16 | uentero32 | uentero64 | uentero128 |
+| doble | flotante | cadena | booleano |
+| fun | lista | tupla | vacio |

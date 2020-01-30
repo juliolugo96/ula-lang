@@ -1,22 +1,21 @@
-Lesma offers the standard mathematical and boolean operators
+ULA ofrece los operadores aritméticos y lógicos estándar.
 
-## General/Specific operators
+## Operadores generales y específicos
 
-|Name|Symbol|Info|
+|Nombre|Símbolo|Info|
 |--|--|--|
-|Dot| `.` | Member accessing operator|
-|Range| `..` | Range defining operator|
+|Range| `..` | Operador de rangos|
 
 ## Mathematical operators
-|Name|Symbol|Info|
+|Nombre|Símbolo|Info|
 |--|--|--|
-|Plus| `+`| Mathematical plus|
-|Minus| `-`| Mathematical minus or Unary minus|
-|Multiplication| `*`| Mathematical multiplication|
-|Divide| `/` |Mathematical division|
-|Integer divide| `//` | Floor value or mathematical division|
-|Modulo| `%` | Mathematical modulo|
-|Power| `^` | Mathematical power|
+|Más| `+`| Mathematical plus|
+|Menos| `-`| Mathematical minus or Unary minus|
+|Multiplicación| `*`| Mathematical multiplication|
+|División| `/` |Mathematical division|
+|División entera| `//` | Floor value or mathematical division|
+|Módulo| `%` | Mathematical modulo|
+|Potencia| `^` | Mathematical power|
 
 ## Boolean operators
 |Name|Symbol|Info|
@@ -48,19 +47,3 @@ Lesma offers the standard mathematical and boolean operators
 |Integer Division Assignment| `//=`|Assignment of value floor divided by current value assigned|
 |Modulo Assignment| `%=`|Assignment of value modulo current value assigned|
 |Power Assignment| `^=`|Assignment of assigned value to the power of value|
-
-
-## Operator Overloading
-
-Operators can be user-defined by defining functions using the keyword `operator` followed by the specified operator, and with one (for unary operators) or two (for binary operators)
-
-```py
-def operator + (x: int, y:int) -> int
-	return 42
-
-def operator - (x: int) -> int
-	return 0
-
-print(3+5)  # Prints 42
-print(-20)  # Prints 0
-```

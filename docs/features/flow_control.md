@@ -1,54 +1,55 @@
-## While loops 
+## Ciclos mientras
 
-The evaluation expression is required to be of type bool.
+
+La condición debe ser de tipo booleano (VERDADERO o FALSO)
 
 ```py
 x = 5
-while(x < 10)
+mientras(x < 10)
 	x += 1
 ```
 
-## For loops
+## Ciclos Para
 
-They can be used to iterate over ranges or lists.
+Pueden ser utilizados para iterar sobre rangos o listas
 
 ```py
-for x in 0..10
-	print(x)
+para x en 0..10
+	mostrar(x)
 
-my_list = [5,8,2]
-for num in my_list
-	print(x)
+mi_lista = [5,8,2]
+para num en mi_lista
+	mostrar(x)
 ```
 
-## If else statements
+## Sentencias si-sino
 
-The evaluation expression is required to be of type bool.
+La expresión evaluada debe ser del tipo booleano.
 
 ```py
-if true
-	print("Then do this")
-else if true
-	print("Never reached")
-else
-	print("Not even")
+si true
+	mostrar("Then do this")
+sino si true
+	mostrar("Never reached")
+sino
+	mostrar("Not even")
 ```
 
-## Switch statement
+## Sentencias segun_sea
 
-**No implicit fallthrough**, this means that in comparison with languages like C, the equivalent to a break statement is implicit in Lesma, therefore you need to specify the `fallthrough` keyword for the flow to go downstream to the other cases. Break statements are not allowed inside a switch statement.
+**No implicit fallthrough**, this means that in comparison with languages like C, the equivalent to a break statement is implicit in Lesma, therefore you need to specsiy the `fallthrough` keyword for the flow to go downstream to the other casos. Break statements are not allowed inside a segun_sea statement.
 
 ```py
-odd_even = 1
+par_impar = 1
 
-switch odd_even
-	case 1
-		fallthrough # Go to the next case
-	case 3
-		print('Odd number')
-	default
-		print("Any number")
-		print(odd_even)
-	case 4
-		print('Even number')
+segun_sea par_impar
+	caso 1
+		fallthrough # Go to the next caso
+	caso 3
+		mostrar('Impar')
+	defecto
+		mostrar("Cualquier número")
+		mostrar(par_impar)
+	caso 4
+		mostrar('Par')
 ```
