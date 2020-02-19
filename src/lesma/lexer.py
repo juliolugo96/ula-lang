@@ -104,7 +104,7 @@ class Lexer(object):
                 self.increment_indent_level()
 
         if spaces != 0 and shouldIndent:
-            error('file={} line={}: Indentation is locked to 4 spaces, found {} instead'.format(
+            error('archivo={} línea={}: La identación está restringida a 4 espacios, pero se encontraron{}'.format(
                 self.file_name, self.line_num, spaces))
 
     def skip_comment(self):
@@ -271,7 +271,7 @@ class Lexer(object):
 
                         self.word = ""
                     elif not (base == 16 and self.current_char in ('a', 'b', 'c', 'd', 'e', 'f')):
-                        error("Unexpected number parsing")
+                        error("Análisis numérico no esperado")
 
                 self.next_char()
             value = self.reset_word()

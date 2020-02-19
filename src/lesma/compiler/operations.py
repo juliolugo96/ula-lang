@@ -50,7 +50,7 @@ def unary_op(self, node):
         if isinstance(expr.type, ir.IntType):
             return self.builder.not_(expr)
     else:
-        error('file={} line={}: Unknown operator {} for {}'.format(
+        error('archivo={} línea={}: Operador desconocido {} para {}'.format(
             self.file_name,
             node.line_num,
             op,
@@ -81,7 +81,7 @@ def binary_op(self, node):
     elif is_enum(left.type) and is_enum(right.type):
         return enum_ops(self, op, left, right, node)
     else:
-        error('file={} line={}: Unknown operator {} for {} and {}'.format(
+        error('archivo={} línea={}: Operador desconocido {} para {} y {}'.format(
             self.file_name,
             node.line_num,
             op, node.left, node.right
@@ -270,14 +270,14 @@ def cast_ops(self, left, right, node):
         raise NotImplementedError
 
     elif cast_type in (ANY, FUNC, STRUCT, CLASS, ENUM, DICT, LIST, TUPLE):
-        raise TypeError('file={} line={}: Cannot cast from {} to type {}'.format(
+        raise TypeError('archivo={} línea={}: No se puede convertir de {} al tipo {}'.format(
             self.file_name,
             node.line_num,
             orig_type,
             cast_type
         ))
 
-    raise TypeError('file={} line={}: Unknown cast from {} to {}'.format(
+    raise TypeError('archivo={} línea={}: Conversión desconocida de {} a {}'.format(
         self.file_name,
         node.line_num,
         orig_type,

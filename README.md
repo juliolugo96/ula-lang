@@ -27,6 +27,7 @@ git clone https://github.com/juliolugo96/ula-lang
 Te recomiendo crear tu propio ambiente virtual con [virtualenv](https://rukbottoland.com/blog/tutorial-de-python-virtualenv/) antes de proseguir.
 
 Instala los requerimientos
+
 ```bash
 sudo apt install clang -y
 pip install -r requirements.txt
@@ -40,7 +41,9 @@ Para ejecutar ULA, debes primero ejecutar los siguientes comandos:
 chmod +x ula
 
 # Para poder tener acceso al script desde la terminal
-export PATH=$PATH:/ruta/de/este/repositorio
+export ULA_HOME=/ruta/de/este/repositorio # Puedes usar el comando pwd para ello
+export PATH=$PATH:$ULA_HOME
+
 ```
 
 ```bash

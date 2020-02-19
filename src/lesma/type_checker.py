@@ -46,7 +46,7 @@ class Preprocessor(NodeVisitor):
                     continue
                 sym_list.append(sym_name)
             if len(sym_list):
-                warning('Unused variables ({})'.format(','.join(sym_name for sym_name in sym_list)))
+                warning('Variables no utilizadas ({})'.format(','.join(sym_name for sym_name in sym_list)))
         return res
 
     def visit_program(self, node):
@@ -91,7 +91,7 @@ class Preprocessor(NodeVisitor):
         for case in node.cases:
             case_type = self.visit(case)
             if case_type != DEFAULT and case_type is not switch_var.type:
-                error('file={} line={}: Types in switch do not match case'.format(self.file_name, node.line_num))
+                error('archivo={} línea={}: Tipos en el segun_sea no coinciden con los casos'.format(self.file_name, node.line_num))
 
     def visit_case(self, node):
         if node.value == DEFAULT:
@@ -142,7 +142,7 @@ class Preprocessor(NodeVisitor):
                 _, collection_type = self.visit(node.right)
 
             if value.name in (TUPLE, LIST) and (not isinstance(node.right, Range) and node.right.type != value.name):
-                error('file={} line={}: Contradicting {}-{} declaration'.format(self.file_name, node.line_num, value.name, node.right.type))
+                error('archivo={} línea={}: Declaración contradictoria {}-{}'.format(self.file_name, node.line_num, value.name, node.right.type))
         elif hasattr(node.right, 'name') and isinstance(self.search_scopes(node.right.name), (StructSymbol, EnumSymbol, ClassSymbol)):
             var_name = node.left.value
             value = self.search_scopes(node.right.name)
@@ -178,7 +178,7 @@ class Preprocessor(NodeVisitor):
                 if var_name is value:
                     return
                 else:
-                    error('file={} line={} Type Error: What are you trying to do?!?! (fix this message)'.format(self.file_name, node.line_num))
+                    error('archivo={} línea={} Error de Tipo: ¿Qué intentas hacer?'.format(self.file_name, node.line_num))
             elif isinstance(value, FuncSymbol):
                 value.name = var_name
                 self.define(var_name, value)
@@ -198,16 +198,16 @@ class Preprocessor(NodeVisitor):
                 self.define(var_name, var_sym)
         else:
             if isinstance(node.left, VarDecl):
-                error('file={} line={}: Cannot redefine the type of a declared variable: {}'.format(self.file_name, node.line_num, var_name))
+                error('archivo={} línea={}: No se puede redefinir el tipo de una variable declarada: {}'.format(self.file_name, node.line_num, var_name))
 
             if collection_assignment:
                 col = self.search_scopes(node.left.collection.value)
                 if col.type.name == TUPLE:
-                    error('file={} line={}: Cannot change the elements of a tuple: {}'.format(self.file_name, node.line_num, var_name))
+                    error('archivo={} línea={}: No se pueden cambiar los elementos de una tupla: {}'.format(self.file_name, node.line_num, var_name))
                 elif lookup_var.item_types == value:
                     return
             if lookup_var.read_only:
-                error('file={} line={}: Cannot change the value of a variable declared constant: {}'.format(self.file_name, node.line_num, var_name))
+                error('archivo={} línea={}: No se puede cambiar el valor de una variable declarada como constante: {}'.format(self.file_name, node.line_num, var_name))
 
             lookup_var.val_assigned = True
             if lookup_var.type in (self.search_scopes(DOUBLE), self.search_scopes(FLOAT)):
@@ -225,7 +225,7 @@ class Preprocessor(NodeVisitor):
             if hasattr(value, 'value'):
                 if value.value == lookup_var.type.name:
                     return
-            error('file={} line={} Type Error: Not good things happening (fix this message)'.format(self.file_name, node.line_num))
+            error('archivo={} línea={} Error de Tipo: Hay un error no identificado en esta línea.'.format(self.file_name, node.line_num))
 
     def visit_opassign(self, node):
         left = self.visit(node.left)
@@ -236,7 +236,7 @@ class Preprocessor(NodeVisitor):
         if types_compatible(left_type, right_type) or left_type is any_type or right_type is any_type:
             return left_type
         else:
-            error('file={} line={}: Things that should not be happening ARE happening (fix this message)'.format(self.file_name, node.line_num))
+            error('archivo={} línea={}: Error desconocido'.format(self.file_name, node.line_num))
 
     def visit_incrementassign(self, node):
         left = self.visit(node.left)
@@ -246,7 +246,7 @@ class Preprocessor(NodeVisitor):
            or left_type is any_type:
             return left_type
         else:
-            error('file={} line={}: Things that should not be happening ARE happening (fix this message)'.format(self.file_name, node.line_num))
+            error('archivo={} línea={}: Error desconocido'.format(self.file_name, node.line_num))
 
     def visit_fieldassignment(self, node):
         obj = self.search_scopes(node.obj)
@@ -256,10 +256,10 @@ class Preprocessor(NodeVisitor):
         var_name = node.value
         val = self.search_scopes(var_name)
         if val is None:
-            error('file={} line={}: Name Error: {}'.format(self.file_name, node.line_num, repr(var_name)))
+            error('archivo={} línea={}: Error de identificador: {}'.format(self.file_name, node.line_num, repr(var_name)))
         else:
             if not val.val_assigned:
-                error('file={} line={}: {} is being accessed before it was defined'.format(self.file_name, node.line_num, var_name))
+                error('archivo={} línea={}: {} está siendo accedida antes de ser definida'.format(self.file_name, node.line_num, var_name))
             val.accessed = True
             return val
 
@@ -267,7 +267,7 @@ class Preprocessor(NodeVisitor):
         if node.op == CAST or node.op in (IS, IS_NOT):
             self.visit(node.left)
             if node.right.value not in TYPES and not isinstance(self.search_scopes(node.right.value), (EnumSymbol, ClassSymbol, StructSymbol)):
-                error('file={} line={}: type expected for operation {}, got {} : {}'.format(self.file_name, node.line_num, node.op, node.left, node.right))
+                error('archivo={} línea={}: Tipo esperado para la operación {}, se obtuvo {} : {}'.format(self.file_name, node.line_num, node.op, node.left, node.right))
             return self.infer_type(self.visit(node.right))
         else:
             left = self.visit(node.left)
@@ -278,7 +278,7 @@ class Preprocessor(NodeVisitor):
             if types_compatible(left_type, right_type) or left_type is any_type or right_type is any_type:
                 return left_type
             else:
-                error('file={} line={}: types do not match for operation {}, got {} : {}'.format(self.file_name, node.line_num, node.op, left, right))
+                error('archivo={} línea={}: Los tipos no coinciden para la operación {}, pues se obtuvo {} : {}'.format(self.file_name, node.line_num, node.op, left, right))
 
     def visit_unaryop(self, node):
         return self.visit(node.expr)
@@ -295,7 +295,7 @@ class Preprocessor(NodeVisitor):
         elif right_type is left_type or left_type is any_type or right_type is any_type:
             return self.search_scopes(LIST), left_type
         else:
-            error('file={} line={}: Please don\'t do what you just did there ever again. It bad (fix this message)'.format(self.file_name, node.line_num))
+            error('archivo={} línea={}: Error desconocido'.format(self.file_name, node.line_num))
 
     def visit_compound(self, node):
         results = []
@@ -314,7 +314,7 @@ class Preprocessor(NodeVisitor):
         func_type = self.search_scopes(node.return_type.value)
 
         if self.search_scopes(func_name) is not None:
-            error('file={} line={}: Cannot redefine a declared function: {}'.format(self.file_name, node.line_num, func_name))
+            error('archivo={} línea={}: No se puede redefinir una función declarada: {}'.format(self.file_name, node.line_num, func_name))
 
         if func_type and func_type.name == FUNC:
             func_type.func = FuncSymbol(ANON, self.visit(node.return_type.func_ret_type), node.parameters, node.body, node.parameter_defaults)
@@ -351,7 +351,7 @@ class Preprocessor(NodeVisitor):
         func_type = self.search_scopes(node.return_type.value)
 
         if self.search_scopes(func_name) is not None:
-            error('file={} line={}: Cannot redefine a declared function: {}'.format(self.file_name, node.line_num, func_name))
+            error('archivo={} línea={}: No se puede redefinir una función declarada: {}'.format(self.file_name, node.line_num, func_name))
 
         if func_type and func_type.name == FUNC:
             func_type.func = FuncSymbol(ANON, self.visit(node.return_type.func_ret_type), node.parameters, node.body, node.parameter_defaults)
@@ -385,9 +385,9 @@ class Preprocessor(NodeVisitor):
             for ret_type in return_types:
                 infered_type = self.infer_type(ret_type)
                 if infered_type is not func_type and not types_compatible(infered_type, func_type):
-                    error('file={} line={}: The actual return type does not match the declared return type: {}'.format(self.file_name, node.line_num, func_name))
+                    error('archivo={} línea={}: El tipo de retorno actual no coincide con el declarado: {}'.format(self.file_name, node.line_num, func_name))
         elif func_type is not None:
-            error('file={} line={}: No return value was specified for function: {}'.format(self.file_name, node.line_num, func_name))
+            error('archivo={} línea={}: Ningún valor de retorno fue especificado para la función: {}'.format(self.file_name, node.line_num, func_name))
         func_symbol = FuncSymbol(func_name, func_type, node.parameters, node.body, node.parameter_defaults)
         self.define(func_name, func_symbol, 1)
         self.drop_top_scope()
@@ -408,7 +408,7 @@ class Preprocessor(NodeVisitor):
         return_var_type = list(flatten(return_var_type))
         for ret_type in return_var_type:
             if self.infer_type(ret_type) is not func_type:
-                error('file={} line={}: The actual return type does not match the declared return type'.format(self.file_name, node.line_num))
+                error('archivo={} línea={}: El tipo de retorno actual no coincide con el declarado'.format(self.file_name, node.line_num))
         self.drop_top_scope()
         return func_symbol
 
@@ -434,13 +434,13 @@ class Preprocessor(NodeVisitor):
             else:
                 func_param_keys = list(parameters.keys())
                 if func_param_keys[x] not in node.named_arguments.keys() and func_param_keys[x] not in parameter_defaults.keys():
-                    error('file={} line={}: Missing arguments to function: {}'.format(self.file_name, node.line_num, repr(func_name)))
+                    error('archivo={} línea={}: Faltan argumentos a la función: {}'.format(self.file_name, node.line_num, repr(func_name)))
                 else:
                     if func_param_keys[x] in node.named_arguments.keys():
                         if not types_compatible(param.value, self.visit(node.named_arguments[func_param_keys[x]]).name):
                             raise TypeError
         if func is None:
-            error('file={} line={}: Name Error: {}'.format(self.file_name, node.line_num, repr(func_name)))
+            error('archivo={} línea={}: Error de Nombre: {}'.format(self.file_name, node.line_num, repr(func_name)))
         else:
             func.accessed = True
             return func.type
@@ -449,7 +449,7 @@ class Preprocessor(NodeVisitor):
         # TODO: hardcoded error for tuple methods, thing of a better way to do it
         if isinstance(self.search_scopes(node.obj), CollectionSymbol) and self.search_scopes(node.obj).type.name == TUPLE:
             if node.name in ('set', 'append'):
-                error('file={} line={}: Immutable Error: cannot use `{}` method'.format(self.file_name, node.line_num, node.name))
+                error('archivo={} línea={}: Error Inmutable: No se puede utilizar el método `{}`'.format(self.file_name, node.line_num, node.name))
 
         # method_name = node.name
         # method = self.search_scopes("{}.{}".format(self.search_scopes(node.obj).type.name, method_name))
@@ -468,7 +468,7 @@ class Preprocessor(NodeVisitor):
         #                 if param.value != self.visit(node.named_arguments[method_param_keys[x]]).name:
         #                     raise TypeError
         # if method is None:
-        #     error('file={} line={}: Name Error: {}'.format(self.file_name, node.line_num, repr(method_name)))
+        #     error('archivo={} línea={}: Name Error: {}'.format(self.file_name, node.line_num, repr(method_name)))
         # else:
         #     method.accessed = True
         #     return method.return_type
@@ -543,7 +543,7 @@ class Preprocessor(NodeVisitor):
         if isinstance(obj, EnumSymbol):
             return obj
         elif node.field not in obj.type.fields:
-            error('file={} line={}: Invalid property {} of variable {}'.format(
+            error('archivo={} línea={}: Propiedad inválida {} de la variable {}'.format(
                 self.file_name, node.line_num, node.field, node.obj))
         return self.visit(obj.type.fields[node.field])
 
@@ -563,14 +563,14 @@ class Preprocessor(NodeVisitor):
             key = self.visit(node.key)
         if collection.type is self.search_scopes(LIST) or collection.type is self.search_scopes(TUPLE) or collection.type is self.search_scopes(SET):
             if key is not self.search_scopes(INT) and key.type is not self.search_scopes(INT):
-                error('file={} line={}: Something something error... huh? (fix this message)'.format(self.file_name, node.line_num))
+                error('archivo={} línea={}: Something something error... huh? (fix this message)'.format(self.file_name, node.line_num))
             return collection.item_types
         elif collection.type is self.search_scopes(DICT) or collection.type is self.search_scopes(ENUM):
             if key is not self.search_scopes(STR) and key.type is not self.search_scopes(STR):
-                error('file={} line={}: Dude....... don\'t (fix this message)'.format(self.file_name, node.line_num))
+                error('archivo={} línea={}: Dude....... don\'t (fix this message)'.format(self.file_name, node.line_num))
             return self.search_scopes(ANY)
         else:
-            error('file={} line={}: WHY? (fix this message)'.format(self.file_name, node.line_num))
+            error('archivo={} línea={}: WHY? (fix this message)'.format(self.file_name, node.line_num))
 
     def visit_print(self, node):
         if node.value:

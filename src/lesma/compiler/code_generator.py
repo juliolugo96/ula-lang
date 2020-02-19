@@ -529,11 +529,11 @@ class CodeGenerator(NodeVisitor):
         if 'case' in self.builder.block.name:
             return FALLTHROUGH
         else:  # TODO: Move this to typechecker
-            error('file={} line={} Syntax Error: fallthrough keyword cannot be used outside of switch statements'.format(self.file_name, node.line_num))
+            error('archivo={} línea={} Error de Sintaxis: fallthrough keyword cannot be used outside of switch statements'.format(self.file_name, node.line_num))
 
     def visit_break(self, node):
         if len(self.loop_end_blocks) == 0:  # TODO: Move this to typechecker
-            error('file={} line={} Syntax Error: break keyword cannot be used outside of control flow statements'.format(self.file_name, node.line_num))
+            error('archivo={} línea={} Error de Sintaxis: La palabra clave salir no puede ser utilizada fuera de sentencias de control'.format(self.file_name, node.line_num))
         self.is_break = True
         return self.branch(self.loop_end_blocks[-1])
 
@@ -645,7 +645,7 @@ class CodeGenerator(NodeVisitor):
             self.builder.store(val, elem)
 
         if len(fields) < len(struct_type.fields):
-            error('file={} line={} Syntax Error: struct declaration doesn\'t initialize all fields ({})'.format(
+            error('archivo={} línea={} Error de Sintaxis: declaración del tipo estructura no inicializa todos los campos ({})'.format(
                 self.file_name, node.line_num, ','.join(fields.symmetric_difference(set(struct_type.fields)))))
 
         struct.name = node.name
@@ -760,7 +760,7 @@ class CodeGenerator(NodeVisitor):
         elif node.value == INF:
             return self.const(inf, DOUBLE)
         else:
-            raise NotImplementedError('file={} line={}'.format(self.file_name, node.line_num))
+            raise NotImplementedError('archivo={} línea={}'.format(self.file_name, node.line_num))
 
     def visit_collection(self, node):
         elements = []
