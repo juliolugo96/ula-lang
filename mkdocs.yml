@@ -14,7 +14,12 @@ nav:
   - Funcionalidades:
     - Sintaxis: features/syntax.md
     - Palabras clave: features/keywords.md
+    - Operadores: features/operators.md
     - Control de flujo: features/flow_control.md
+    - Estructuras: features/structs.md
+    - Tipos: features/types.md
+    - Enumerados: features/enums.md
+    - Clases: features/classes.md
   - Licencia: license.md
 
 extra_css:
