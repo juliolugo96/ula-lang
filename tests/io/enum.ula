@@ -4,15 +4,15 @@ enum Color
 
 x: Color = Color.White
 y: Color = Color.Red
-print(x == Color.White)
-print(x == Color.Red)
-print(x == y)
+mostrar(x == Color.White)
+mostrar(x == Color.Red)
+mostrar(x == y)
 
 # Testing enums as parameters and return values
 def giveMeSomeColor(some: Color) -> Color
-    return some
+    retorna some
 
 cir: Color = Color.Red
 xy = giveMeSomeColor(cir)
-print(xy == Color.Red)
-print(xy is Color)
+mostrar(xy == Color.Red)
+mostrar(xy es Color)

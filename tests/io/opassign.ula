@@ -1,0 +1,33 @@
+number: entero = 0
+mostrar(number)
+number += 5
+mostrar(number)
+number -= 1
+mostrar(number)
+number /= 2
+mostrar(number)
+number *= 10
+mostrar(number)
+number //= 7
+mostrar(number)
+number ^= 3
+mostrar(number)
+number %= 3
+mostrar(number)
+
+number2: doble = 0
+mostrar(number2)
+number2 += 5
+mostrar(number2)
+number2 -= 1
+mostrar(number2)
+number2 /= 2
+mostrar(number2)
+number2 *= 10
+mostrar(number2)
+number2 //= 7
+mostrar(number2)
+number2 ^= 3
+mostrar(number2)
+number2 %= 3
+mostrar(number2)

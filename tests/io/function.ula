@@ -1,0 +1,54 @@
+# Función básica
+def fib(n: entero) -> entero
+	a = 0
+	b = 1
+	para _ en 0..n
+		prev_a = a
+		a = b
+		b = prev_a + b
+	retorna a
+
+mostrar(fib(10))
+
+# Función recursiva
+def fib_rec(n: entero) -> entero
+	si n == 0
+		retorna 0
+	sino si n == 1
+		retorna 1
+	retorna fib_rec(n - 1) + fib_rec(n - 2)
+
+mostrar(fib_rec(10))
+
+# Valor por defecto
+def factorial(n: entero = 5) -> entero
+	si n <= 1
+		retorna 1
+	retorna n * factorial(n - 1)
+
+mostrar(factorial())
+
+# Funcion como parametro
+def do_stuff(x: entero, callback: func<entero> -> entero) -> entero
+    retorna callback(5)
+
+def demo(x: entero) -> entero
+    retorna x
+
+mostrar(do_stuff(2, demo))
+
+# Función como tipo de retorno
+def func_as_ret() -> func<entero> -> entero
+	ret_func = def(y: entero) -> entero
+		retorna y + 10
+	retorna ret_func
+
+fun = func_as_ret()
+mostrar(fun(3))
+
+# List as parameter
+def list_demo(x: lista<entero>) -> entero
+	retorna 4
+
+basic_list = [1,2,3]
+mostrar(list_demo(basic_list))

@@ -1,0 +1,8 @@
+def demo()
+    diferir mostrar("Func!")
+    mostrar("Hello")
+
+demo()
+
+diferir mostrar("World!")
+mostrar("Hello")

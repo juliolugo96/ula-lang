@@ -1,0 +1,4 @@
+x: entero32 = 5
+mostrar(x como flotante)
+mostrar(x es entero)
+mostrar(x es entero32)

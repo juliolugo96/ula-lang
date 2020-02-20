@@ -1,0 +1,19 @@
+x: func<entero, entero> -> entero = def (x: entero, y: entero) -> entero
+	si x > y
+		retorna x + y
+	sino
+		retorna x * y
+
+y = def (x: entero, y: entero) -> entero
+	si x > y
+		retorna x + y
+	sino
+		retorna x * y
+
+z: func = def()
+    mostrar(5)
+
+
+mostrar(x(2,1))
+mostrar(y(2,4))
+z()

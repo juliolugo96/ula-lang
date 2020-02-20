@@ -1,0 +1,40 @@
+a1: entero = 1
+a2: entero8 = 2
+a3: entero16 = 3
+a4: entero32 = 4
+a5: entero64 = 5
+a6: entero128 = 6
+a7: doble = 6.5
+a8: flotante = 7.69
+a9: booleano = VERDADERO
+a10: cadena = "Hey there"
+a11: lista<entero> = [1,2,3,4]
+a12: tupla<doble> = (1.5,3.5,9.0)
+a13: lista<cadena> = ["Hey", "There"]
+a14: lista<booleano> = [VERDADERO, FALSO, FALSO]
+a15: doble = INFINITO
+a16: doble = -INFINITO
+
+b1 = 1 como entero
+b2 = 2 como entero8
+b3 = 3 como entero16
+b4 = 4 como entero32
+b5 = 5 como entero64
+b6 = 6 como entero128
+b7 = 6.5 como doble
+b8 = 7.69 como flotante
+b9 = VERDADERO
+b10 = "Hey there"
+b11 = [1,2,3,4]
+b12 = (1.5,3.5,9.0)
+b13 = ["Hey", "There"]
+b14 = [VERDADERO, FALSO, FALSO]
+b15 = INFINITO
+b16 = -INFINITO
+
+x = 5
+y = 7.5
+z = "Hey there"
+mostrar(x)
+mostrar(y)
+mostrar(z)

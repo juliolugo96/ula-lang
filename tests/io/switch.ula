@@ -1,0 +1,7 @@
+x = 5
+segun_sea x
+    caso 5
+        mostrar(x)
+        fallthrough
+    caso 1
+        mostrar(x+1)

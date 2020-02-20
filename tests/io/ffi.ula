@@ -1,0 +1,7 @@
+# Extern functions (FFI)
+def externa abs(x: entero) -> entero # from C's stdlib
+def externa pow(x: doble, y: doble) -> doble
+
+
+mostrar(abs(-5))
+mostrar(pow(2,4))

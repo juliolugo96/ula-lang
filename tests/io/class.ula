@@ -1,4 +1,4 @@
-class DemoClass
+clase DemoClass
     def new()
         pass
 

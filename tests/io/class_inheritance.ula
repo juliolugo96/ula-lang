@@ -1,33 +1,33 @@
-class DemoClass
-    x: int
+clase DemoClass
+    x: entero
     def new()
         self.x = 5
 
     def test()
-        print("Test")
+        mostrar("Test")
 
-class DemoClass2: DemoClass
-    y: int
+clase DemoClass2: DemoClass
+    y: entero
     def new()
         self.y = 4
         self.x = 5
 
     def test2()
-        print("Test2")
+        mostrar("Test2")
 
-class DemoClass3: DemoClass2
-    z: int
+clase DemoClass3: DemoClass2
+    z: entero
     def new()
         self.z = 6
         self.y = 4
         self.x = 5
 
     def test3()
-        print("Test3")
+        mostrar("Test3")
 
 y = DemoClass3()
 y.test()
-print(y.x)
-print(y.y)
-print(y.z)
+mostrar(y.x)
+mostrar(y.y)
+mostrar(y.z)
 y.test3()

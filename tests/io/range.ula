@@ -1,0 +1,19 @@
+para i en 0..11
+    a = i
+    mostrar(i)
+
+b = 0
+para i en 0..11
+    b = i
+
+x = 11
+para i en 0..x
+    mostrar(i)
+
+y = 0..10
+mostrar(y[5] == 5)
+
+y[5] = 20
+mostrar(y[5] == 20)
+
+z: tupla<entero> = 0..2

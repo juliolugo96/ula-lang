@@ -1,0 +1,8 @@
+def operador - (x: entero, y: entero) -> entero
+	retorna x + 3
+
+def operador + (x: entero) -> entero
+	retorna 5
+
+mostrar(3 - 1)
+mostrar( +2 )

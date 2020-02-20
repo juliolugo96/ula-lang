@@ -1,0 +1,6 @@
+x = (1,2,3,4)
+mostrar(x[0])
+y = (1.5,3.5)
+mostrar(y[1])
+z: tupla<doble> = (2.5,3.5, INFINITO)
+mostrar(z[0])

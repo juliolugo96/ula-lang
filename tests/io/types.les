@@ -1,4 +1,0 @@
-x: int32 = 5
-print(x as float)
-print(x is int)
-print(x is int32)

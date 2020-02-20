@@ -1,0 +1,3 @@
+tipo my_float = flotante
+x: my_float = 3.5
+mostrar(x)

@@ -8,7 +8,7 @@ def get_tests():
     tests = []
     path = os.path.dirname(__file__)
     for unittest in os.listdir(os.path.join(path, "io")):
-        if unittest.endswith(".les"):
+        if unittest.endswith(".ula"):
             tests.append(os.path.basename(unittest).split('.')[0])
     return tests
 
@@ -18,7 +18,7 @@ def get_tests():
 def test_base(test_name):
     path = os.path.join(os.path.dirname(__file__), os.pardir)
     proc = Popen([sys.executable, os.path.join(path, "src", "les.py"),
-                 "run", os.path.join(path, "tests", "io", test_name + ".les")],
+                 "run", os.path.join(path, "tests", "io", test_name + ".ula")],
                  stdout=PIPE, stderr=PIPE, universal_newlines=True)
     out, err = proc.communicate()
     output = out.strip()

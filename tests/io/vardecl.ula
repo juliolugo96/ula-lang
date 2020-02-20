@@ -1,0 +1,12 @@
+a1: entero
+a2: entero8
+a3: entero16
+a4: entero32
+a5: entero64
+a6: entero128
+a8: flotante
+a7: doble
+a10: booleano
+a11: cadena
+a12: lista<entero>
+a13: tupla<flotante>
