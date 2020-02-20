@@ -21,7 +21,32 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://juliolugo96.github.io/ula-lang/features/operators/</loc>
+     <lastmod>2020-02-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://juliolugo96.github.io/ula-lang/features/flow_control/</loc>
+     <lastmod>2020-02-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://juliolugo96.github.io/ula-lang/features/structs/</loc>
+     <lastmod>2020-02-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://juliolugo96.github.io/ula-lang/features/types/</loc>
+     <lastmod>2020-02-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://juliolugo96.github.io/ula-lang/features/enums/</loc>
+     <lastmod>2020-02-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://juliolugo96.github.io/ula-lang/features/classes/</loc>
      <lastmod>2020-02-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
