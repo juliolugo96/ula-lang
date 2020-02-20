@@ -1,7 +1,13 @@
 #!/bin/bash
 
-if [ -z "$2" ]; then
-    python $ULA_HOME/src/les.py compile "$1"
+if [ -z "$ULA_HOME" ]; then
+    echo "Por favor, exporta la variable de entorno ULA_HOME"
+    echo "Ejecuta: export ULA_HOME=/ruta/de/instalacion/ula"
+    echo "Finalmente: export PATH=$PATH:$ULA_HOME"
 else
-    python $ULA_HOME/src/les.py "$2" "$1"
+    if [ -z "$2" ]; then
+        python $ULA_HOME/src/les.py compile "$1"
+    else
+        python $ULA_HOME/src/les.py "$2" "$1"
+    fi
 fi
