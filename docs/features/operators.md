@@ -2,48 +2,48 @@ ULA ofrece los operadores aritméticos y lógicos estándar.
 
 ## Operadores generales y específicos
 
-|Nombre|Símbolo|Info|
+|Nombre|Símbolo|Información|
 |--|--|--|
-|Range| `..` | Operador de rangos|
+|Rango| `..` | Operador de rangos|
 
-## Mathematical operators
-|Nombre|Símbolo|Info|
+## Operadores Matemáticos
+|Nombre|Símbolo|Información|
 |--|--|--|
-|Más| `+`| Mathematical plus|
-|Menos| `-`| Mathematical minus or Unary minus|
-|Multiplicación| `*`| Mathematical multiplication|
-|División| `/` |Mathematical division|
-|División entera| `//` | Floor value or mathematical division|
-|Módulo| `%` | Mathematical modulo|
-|Potencia| `^` | Mathematical power|
+|Más| `+`| Suma matemática|
+|Menos| `-`| Resta matemática|
+|Multiplicación| `*`| Multiplicación matemática|
+|División| `/` |División matemática|
+|División entera| `//` | Valores piso o división matemática entre enteros|
+|Módulo| `%` | Módulo matemático|
+|Potencia| `^` | Potencia matemática|
 
-## Boolean operators
-|Name|Symbol|Info|
+## Operadores Booleanos
+|Nombre|Símbolo|Información|
 |--|--|--|
-|And| `and`| And|
-|Or| `or`| Or|
-|Xor| `xor`| Exclusive Or|
-|Is| `is` | Type checking operator|
-|As| `as` | Casting operator|
-|Not| `not` | Not boolean operator|
-|Equals| `==` | Value equality|
-|Not Equals| `!=` | Value inequality|
-|Less Than| `<` | Less than value|
-|Less Or Equal Than| `<=` | Less or equal than value|
-|Greater Than| `<` | Greater than value|
-|Greater Or Equal Than| `>=` | Greater or equal than value|
+|Y| `y_es`| COnjunción lógica |
+|O| `o_es`| Disyunción lógica |
+|Xor| `xor`| Disyunción exclusiva|
+|Es| `es` | Operador de chequeo de tipos|
+|Como| `como` | Operador de conversión|
+|No| `no` | Negación lógica|
+|Igual que| `==` | Comparación de igualdad|
+|Distinto que| `!=` | Comparación de desigualdad|
+|Menor que| `<` | Comparación para valores menores|
+|Menor o Igual que| `<=` | Comparación para valores menores o iguales|
+|Mayor que| `<` | Mayor que un valor|
+|Mayor o Igual que| `>=` | Mayor o igual que un valor|
 
-## Assignment operators
+## Operadores de Asignación
 
-|Name|Symbol|Info|
+|Nombre|Símbolo|Información|
 |--|--|--|
-|Assignment| `=`| Assignment of value to variable|
-|Incremental Assignment| `++`| Increments the value of a variable|
-|Decrement Assignment| `--`| Decrements the value of a variable|
-|Addition Assignment| `+=`| Assignment of value plus current value assigned|
-|Substraction Assignment| `-=`|Assignment of value minus current value assigned|
-|Multiplication Assignment| `*=`|Assignment of value multiplied by the current value assigned|
-|Division Assignment| `/=`|Assignment of value divided by the value assigned|
-|Integer Division Assignment| `//=`|Assignment of value floor divided by current value assigned|
-|Modulo Assignment| `%=`|Assignment of value modulo current value assigned|
-|Power Assignment| `^=`|Assignment of assigned value to the power of value|
+|Asignación| `=`| Asignación de una variable|
+|Asignación por Incremento| `++`| Incrementa el valor de una variable|
+|Asignación por Decremento| `--`| Decrementa el valor de una variable|
+|Asignación por Adición| `+=`| Asignación de valor sumado al valor actual de la variable|
+|Asignación por Substracción| `-=`|Asignación de valor menos el valor actual de la variable|
+|Asignación con Multiplicación| `*=`|Asignación de valor menos el valor actual de la variable|
+|Asignación por División| `/=`|Asignación de valor actual divido por el valor asignado|
+|Asignación por División Entera| `//=`|Asignación del valor divido enteramente por el valor asignado actual|
+|Asignación por Módulo| `%=`|Asignación del valor módulo valor actual asignado|
+|Asignación por Potencia| `^=`|Asignación del valor asignado a la potencia del valor actual|

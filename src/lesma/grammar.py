@@ -52,7 +52,7 @@ GREATER_THAN_OR_EQUAL_TO = '>='
 DECORATOR = '@'  # TODO
 
 # Types
-ANY = 'any'
+ANY = 'cualquiera'
 INT = 'entero'
 INT8 = 'entero8'
 INT16 = 'entero16'

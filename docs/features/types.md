@@ -1,29 +1,17 @@
-Types are optional in Lesma, you can choose whether you specify them or not. Unspecified variable types are inferred at compile time from the value of the assignment.
+El tipado es opcional en ULA, pues puedes elegir si los especificas o no. Las variables con tipos de datos no especificados son inferidos en tiempo de compilación a partir del valor asignado.
 
-Operations between different types will either be casted to the larger type if the two types are compatible, or give an error otherwise. Two types are compatible if they are different sizes of the same group type (such as ints or floating points).
+Las operaciones entre tipos diferentes pueden o bien ser convertidas a un tipo común si ambos tipos son compatibles, o simplemente arrojar un error. Dos tipos son compatibles si ambos representan distintos tamaños de un mismo grupo de tipo (Un ejemplo de ello son los enteros o los puntos flotantes).
 
-The type must be either a user-defined type, a struct, enum, class, or a built-in type.
+El tipo de dato deber ser o bien definido por el usuario, o una estructura, enumerado, clase o un tipo primitivo.
 
-!!! warning
-	Types that are not specified are inferred, this is fundamentally different in comparison to dynamic types!
+### Advertencia
+	Los tipos que no son especificados son inferidos, esto es fundamentalmente diferente en comparación con los tipos dinámicos.
 
 ---
 
-## Built-in Types
+## Tipos Primitivos
 
-### Any
-
-Any types can receive any kind of value, so it can receive any kind of value at any moment.
-
-```py
-x: any = 5
-x = "Hey there"
-```
-
-!!! warning
-    Any type is not implemented yet!
-
-### Int
+### Entero
 There are multiple types of ints available based on width and signed/unsigned. They can get a minimum of 8 bits width and a maximum of 128. If the width is not specified, it's by default 64.
   - Signed: `int`, `int8`, `int16`, `int32`, `int64`, `int128`
   - Unsigned: `uint`, `uint8`, `uint16`, `uint32`, `uint64`, `uint128`

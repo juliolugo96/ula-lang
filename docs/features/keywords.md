@@ -6,7 +6,7 @@ Para referencia, aquí están todas las palabras claves categorizadas:
 |---|---|---|---|
 | estructura | clase | si | sino | 
 | para | mientras | segun_sea | caso |
-| defecto | def | constante | salir |
+| defecto | def | const | salir |
 | continuar |
 
 ## Constantes
@@ -30,4 +30,4 @@ Para referencia, aquí están todas las palabras claves categorizadas:
 | entero64 | entero128 | uentero | uentero8 |
 | uentero16 | uentero32 | uentero64 | uentero128 |
 | doble | flotante | cadena | booleano |
-| fun | lista | tupla | vacio |
+| func | lista | tupla | vacio |
