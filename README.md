@@ -24,7 +24,14 @@ Clona este repositorio:
 git clone https://github.com/juliolugo96/ula-lang
 ```
 
-Te recomiendo crear tu propio ambiente virtual con [virtualenv](https://rukbottoland.com/blog/tutorial-de-python-virtualenv/) antes de proseguir.
+Debes crear tu propio ambiente virtual con [virtualenv](https://rukbottoland.com/blog/tutorial-de-python-virtualenv/) antes de proseguir, asegúrate que la versión por defecto de Python sea 3.5 o mayor al momento de crear el ambiente. Puedes confirmarlo con el siguiente comando:
+
+```
+# Ejemplo
+
+(ambiente-python) ~$ python --version
+Python 3.6.10
+```
 
 Instala los requerimientos
 
@@ -41,19 +48,15 @@ Para ejecutar ULA, debes primero ejecutar los siguientes comandos:
 chmod +x ula
 
 # Para poder tener acceso al script desde la terminal
-export ULA_HOME=/ruta/de/este/repositorio # Puedes usar el comando pwd para ello
+export ULA_HOME=/ruta/de/este/repositorio # Puedes usar el comando pwd para ello si estas corriendo los comandos dentro del mismo
 export PATH=$PATH:$ULA_HOME
 
 ```
 
 ```bash
-# Para compilar
+# Para compilar únicamente
 ula tuarchivo.ula
 
 # Para correr en modo interprete
-
 ula tuarchivo.ula run
-
-# Para ejecutar codigo objeto generado luego de la compilación
-ula tuobjeto.output run
 ```
