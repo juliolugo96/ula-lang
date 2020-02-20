@@ -93,7 +93,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#example" tabindex="1" class="md-skip">
+      <a href="#ejemplo" tabindex="1" class="md-skip">
         Saltar a contenido
       </a>
     
@@ -339,8 +339,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    Example
+  <a href="#ejemplo" class="md-nav__link">
+    Ejemplo
   </a>
   
 </li>
@@ -366,9 +366,9 @@
                 
                   <h1>Structs</h1>
                 
-                <p><strong>Structs</strong> fill a similar role to Python's dataclasses, which you can describe as "mutable namedtuples with defaults", but they're stricter in the sense that <strong>they're not disguised classes</strong>, you can not define methods or other class-specific behaviour, but they can still be extended by overloading operators and they are still defined as a type in Lesma. Struct members can be accessed using the dot <code>.</code>.</p>
+                <p>Las <strong>Estructuras</strong> cumplen un rol simlar a las clases de datos de Python, las cuales puedes describir como "tuplas nombradas mutables con valores por defecto", pero son más estrictas en el sentido de que no son <strong>clases encubiertas</strong>, pues no puedes definir métodos u otros comportamientos específicos de las mismas, pero aún pueden ser extendidas al sobrecargar operadores y pueden ser definidas como un tipo. Los miembros de una estructura puede ser accedidos con el operador punto <code>.</code>.</p>
 <p>All the fields of a struct are required arguments on initialization unless a default is provided.</p>
-<h2 id="example">Example</h2>
+<h2 id="ejemplo">Ejemplo</h2>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -376,14 +376,14 @@
 5
 6
 7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">struct</span> <span class="n">Circle</span>
-    <span class="n">radius</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">x</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">y</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span>
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">estructura</span> <span class="n">Circle</span>
+    <span class="n">radius</span><span class="p">:</span> <span class="n">entero</span>
+    <span class="n">x</span><span class="p">:</span> <span class="n">entero</span>
+    <span class="n">y</span><span class="p">:</span> <span class="n">entero</span> <span class="o">=</span> <span class="mi">4</span>
 
 <span class="n">cir</span><span class="p">:</span> <span class="n">Circle</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">cir</span><span class="o">.</span><span class="n">radius</span><span class="p">)</span>  <span class="c1"># Members of a struct are accessed using a dot.</span>
+<span class="n">mostrar</span><span class="p">(</span><span class="n">cir</span><span class="o">.</span><span class="n">radius</span><span class="p">)</span>  <span class="c1"># Los miembros de una estructura son accedidos utilizando un punto.</span>
 </pre></div>
 </td></tr></table>
                 
