@@ -1,29 +1,29 @@
-**Classes** are objects that bundle fields and methods to provide additional functionality that you can further use as a type for any variable, which can then be further expanded using operator overloading and other type-specific behaviour. Classes members can be accessed using a dot `.`.
+Las **Clases** are objects that bundle fields and methods to provide additional functionality that you can further use as a type for any variable, which can then be further expanded using operator overloading and other type-specific behaviour. Classes members can be accessed using a dot `.`.
 
-Classes **require a constructor to be specified**.
+Las clases **requieren que sea especificado un constructor**.
 
-## Example
+## Ejemplo
 ```py
-class Vehicle
-	year: int
+clase Vehicle
+	year: entero
 	color: str
 
 	# Constructor
-	def new(year: int, color: str)
+	def new(year: entero, color: cadena)
 		this.year = year
 		this.color = color  
 
 # Inheritance
-class Car: Vehicle
-	def new(year: int, color='green', hatchback=false)
+clase Car: Vehicle
+	def new(year: entero, color='green', hatchback=FALSO)
 		self.hatchback = hatchback
 		super.Vehicle(year, color)
 
 	def print_year() -> void
-		print('This car was made in {self.year}')
+		mostrar('This car was made in {self.year}')
 
 ford = Car(1992)
 
-print(ford.hatchback)
+mostrar(ford.hatchback)
 ford.print_year()
 ```
