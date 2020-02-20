@@ -667,6 +667,9 @@ class CodeGenerator(NodeVisitor):
         right = self.visit(node.right)
         collection_access = None
         key = None
+
+        print("Hello visiting this")
+
         if isinstance(node.left, CollectionAccess):
             collection_access = True
             var_name = self.search_scopes(node.left.collection.value)
@@ -715,6 +718,7 @@ class CodeGenerator(NodeVisitor):
             else:
                 raise NotImplementedError()
         elif isinstance(pointee, ir.DoubleType) or isinstance(pointee, ir.FloatType):
+            
             if op == PLUS_ASSIGN:
                 right = cast_ops(self, right, var.type, node)
                 res = self.builder.fadd(var, right)
@@ -1205,8 +1209,8 @@ class CodeGenerator(NodeVisitor):
 
         with open(os.devnull, "w") as tmpout:
             subprocess.call('gcc {0}.ll -O3 -o {0}'.format(output).split(" "), stdout=tmpout, stderr=tmpout)
-            successful("compilation done in: %.3f seconds" % (time() - compile_time))
-            successful("binary file wrote to " + output)
+            successful("Compilación terminada en: %.3f segundos" % (time() - compile_time))
+            successful("Archivo binario creado en " + output)
 
         if emit_llvm:
             successful("llvm assembler wrote to " + output + ".ll")

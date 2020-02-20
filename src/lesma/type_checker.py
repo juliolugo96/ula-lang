@@ -21,8 +21,8 @@ def flatten(container):
 def types_compatible(left_type, right_type):
     left_type = str(left_type)
     right_type = str(right_type)
-    int_type = ('i8', 'i16', 'i32', 'i64', 'int8', 'int16', 'int32', 'int64', 'int')
-    float_type = ('float', 'double')
+    int_type = ('i8', 'i16', 'i32', 'i64', 'entero8', 'entero16', 'entero32', 'entero64', 'entero')
+    float_type = ('flotante', 'doble')
     num_type = int_type + float_type
     if (left_type == right_type) or \
        (left_type in num_type and right_type in num_type):
@@ -233,10 +233,13 @@ class Preprocessor(NodeVisitor):
         left_type = self.infer_type(left)
         right_type = self.infer_type(right)
         any_type = self.search_scopes(ANY)
+
+        print("Left type: {}".format(left_type))
+
         if types_compatible(left_type, right_type) or left_type is any_type or right_type is any_type:
             return left_type
         else:
-            error('archivo={} línea={}: Error desconocido'.format(self.file_name, node.line_num))
+            error('archivo={} línea={}: Error desconocido en +='.format(self.file_name, node.line_num))
 
     def visit_incrementassign(self, node):
         left = self.visit(node.left)
@@ -246,7 +249,7 @@ class Preprocessor(NodeVisitor):
            or left_type is any_type:
             return left_type
         else:
-            error('archivo={} línea={}: Error desconocido'.format(self.file_name, node.line_num))
+            error('archivo={} línea={}: Error desconocido en ++'.format(self.file_name, node.line_num))
 
     def visit_fieldassignment(self, node):
         obj = self.search_scopes(node.obj)
@@ -295,7 +298,7 @@ class Preprocessor(NodeVisitor):
         elif right_type is left_type or left_type is any_type or right_type is any_type:
             return self.search_scopes(LIST), left_type
         else:
-            error('archivo={} línea={}: Error desconocido'.format(self.file_name, node.line_num))
+            error('archivo={} línea={}: Error desconocido en rango'.format(self.file_name, node.line_num))
 
     def visit_compound(self, node):
         results = []

@@ -257,9 +257,9 @@ def cast_ops(self, left, right, node):
     elif cast_type in float_types:  # float
         if orig_type in int_types:  # from signed int
             if left.type.signed:
-                return self.builder.sitofp(left, type_map[cast_type])
+                return self.builder.sitofp(left, llvm_type_map[cast_type])
             else:
-                return self.builder.uitofp(left, type_map[cast_type])
+                return self.builder.uitofp(left, llvm_type_map[cast_type])
         elif orig_type in float_types:  # from float
             if cast_type == 'double' and orig_type == 'float':
                 return self.builder.fpext(left, llvm_type_map[cast_type])
