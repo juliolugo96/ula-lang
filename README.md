@@ -7,6 +7,7 @@ ___
 [![Version](https://img.shields.io/badge/version-0.4.1-brightgreen.svg)](https://github.com/hassanalinali/Lesma/blob/master/LICENSE.md)
 [![CircleCI](https://circleci.com/gh/hassanalinali/Lesma/tree/master.svg?style=shield)](https://circleci.com/gh/hassanalinali/Lesma/tree/master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/90fcc06be70d4dd98f54f1bb2713d70c)](https://www.codacy.com/app/hassanalinali/Lesma?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=hassanalinali/Lesma&amp;utm_campaign=Badge_Grade)
+[![DOI](https://zenodo.org/badge/227675779.svg)](https://zenodo.org/badge/latestdoi/227675779)
 
 El lenguaje de programación ULA (Universal LAnguague) es un lenguaje de programación cuya sintaxis está definida enteramente en español, de codificación flexible y orientado al desarrollo de las capacidades de programación en niños y jóvenes interesados en aprender sobre este arte. ULA está construido sobre **Lesma**, un lenguaje estáticamente tipado, imperativo y orientado a objetos desarrollado por el usuario [Hassan Alin Ali](https://github.com/hassanalinali). El lenguaje se encuentra desarrollado en Python usando LLVM como backend.
 
